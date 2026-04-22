@@ -5,124 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Andre Villamil - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#0a0a0a',
+                        'secondary-bg': '#1a1a1a',
+                        'card-bg': '#2a2a2a',
+                        'accent-green': '#00ff88',
+                        'accent-green-dim': '#00cc6a',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/50 border-b border-white/5 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-accent-green font-bold text-xl tracking-tighter hover:scale-110 transition-transform">AV</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-accent-green transition-colors">Sobre mí</a>
+                <a href="#tech" class="hover:text-accent-green transition-colors">Tecnologías</a>
+                <a href="#experience" class="hover:text-accent-green transition-colors">Experiencia</a>
+                <a href="#projects" class="hover:text-accent-green transition-colors">Proyectos</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-image">
-                    <div style="width: 100%; height: 100%; border-radius: 50%; background: var(--secondary-bg); display: flex; align-items: center; justify-content: center; font-size: 60px; color: var(--accent-green);">
-                        <img src="./images/me.jpg" alt="Foto de Andre Villamil">
+    <section class="hero min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="hero-content flex flex-col md:flex-row items-center gap-12">
+                <div class="profile-image-container relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-accent-green to-accent-green-dim rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="profile-image w-48 h-48 md:w-64 md:h-64 relative rounded-full overflow-hidden border-2 border-accent-green/30">
+                        <img src="./images/me.jpg" alt="Andre Villamil" class="w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="hero-info">
-                    <h1 class="hero-title">Andre Villamil</h1>
-                    <p class="hero-subtitle">Estudiante de Ing. en Software & Desarrollador</p>
-                    <p id="location-text" class="hero-location">
-                        <img src="./images/icons/location.svg" alt="Location Icon" class="icon">
-                            Villahermosa, Tabasco, México
+                <div class="hero-info text-center md:text-left flex-1">
+                    <span class="inline-block px-3 py-1 bg-accent-green/10 text-accent-green text-sm font-semibold rounded-full mb-4">Disponible para trabajar</span>
+                    <h1 class="hero-title text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+                        Andre <span class="text-accent-green">Villamil</span>
+                    </h1>
+                    <p class="hero-subtitle text-xl md:text-2xl text-gray-400 mb-6 font-light">
+                        Estudiante de Ing. en Software & <span class="text-white">Desarrollador Full Stack</span>
                     </p>
-                    <div class="social-links">
-                        <a href="mailto:andyx063799@gmail.com" class="social-link">
-                            <img src="./images/icons/email.svg" alt="Email Icon" class="icon">
+                    <p id="location-text" class="hero-location flex items-center justify-center md:justify-start gap-2 text-gray-500 mb-8">
+                        <svg class="w-5 h-5 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Villahermosa, Tabasco, México
+                    </p>
+                    <div class="social-links flex justify-center md:justify-start gap-4">
+                        <a href="mailto:andyx063799@gmail.com" class="social-link group flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent-green/50 rounded-xl transition-all duration-300">
+                            <img src="./images/icons/email.svg" alt="Email" class="w-5 h-5 group-hover:scale-110 transition-transform">
+                            <span class="hidden sm:inline">Contáctame</span>
                         </a>
-                        <a href="https://github.com/andyx063799" class="social-link" target="_blank">
-                            <img src="./images/icons/github.svg" alt="GitHub Icon" class="icon">
+                        <a href="https://github.com/andyx063799" target="_blank" class="social-link group p-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent-green/50 rounded-xl transition-all duration-300">
+                            <img src="./images/icons/github.svg" alt="GitHub" class="w-6 h-6 group-hover:scale-110 transition-transform">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path></svg>
+        </div>
     </section>
 
     <!-- About Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Sobre mí</h2>
-            <div class="about-content fade-in">
-                <p class="about-text">
-                    Soy un estudiante de Ingeniería en Software apasionado por el desarrollo tecnológico. Me encanta lo que hago 
-                    y tengo grandes ambiciones de seguir aprendiendo y creciendo constantemente en este campo. Creo firmemente 
-                    en la importancia de aceptar los errores como parte del proceso de aprendizaje y siempre busco nuevas 
-                    oportunidades para expandir mis conocimientos. Mi objetivo es convertirme en un desarrollador completo 
-                    y contribuir con soluciones innovadoras que generen un impacto positivo.
-                </p>
+    <section id="about" class="section py-32 bg-secondary-bg/30">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="section-title text-4xl font-bold mb-12 text-center fade-in">Sobre mí</h2>
+                <div class="about-content fade-in">
+                    <p class="about-text text-lg text-gray-400 leading-relaxed text-center">
+                        Soy un estudiante de <span class="text-white font-medium">Ingeniería en Software</span> apasionado por el desarrollo tecnológico. 
+                        Me encanta lo que hago y tengo grandes ambiciones de seguir aprendiendo y creciendo constantemente en este campo. 
+                        Creo firmemente en la importancia de aceptar los errores como parte del proceso de aprendizaje y siempre busco nuevas 
+                        oportunidades para expandir mis conocimientos. Mi objetivo es convertirme en un desarrollador completo 
+                        y contribuir con <span class="text-accent-green font-medium">soluciones innovadoras</span> que generen un impacto positivo.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Technologies Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Tecnologías</h2>
-            <div class="tech-grid fade-in">
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/java.svg"></span>
-                    <span class="tech-name">Java</span>
+    <section id="tech" class="section py-32">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-4xl font-bold mb-16 text-center fade-in">Tecnologías</h2>
+            <div class="tech-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 fade-in">
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/java.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="Java">
+                    <span class="tech-name font-medium text-gray-300">Java</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/javascript.svg"></span>
-                    <span class="tech-name">JavaScript</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/javascript.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="JavaScript">
+                    <span class="tech-name font-medium text-gray-300">JavaScript</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/csharp.svg"></span>
-                    <span class="tech-name">C#</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/lua.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="Lua">
+                    <span class="tech-name font-medium text-gray-300">Lua</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/lua.svg"></span>
-                    <span class="tech-name">Lua</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/python.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="Python">
+                    <span class="tech-name font-medium text-gray-300">Python</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/nodejs.svg"></span>
-                    <span class="tech-name">Node.js</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/nodejs.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="Node.js">
+                    <span class="tech-name font-medium text-gray-300">Node.js</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/html5.svg"></span>
-                    <span class="tech-name">HTML</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/html5.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="HTML">
+                    <span class="tech-name font-medium text-gray-300">HTML</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/css3.svg"></span>
-                    <span class="tech-name">CSS</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/css3.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="CSS">
+                    <span class="tech-name font-medium text-gray-300">CSS</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/php.svg"></span>
-                    <span class="tech-name">PHP</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/php.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="PHP">
+                    <span class="tech-name font-medium text-gray-300">PHP</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/sqlite.svg"></span>
-                    <span class="tech-name">SQLite</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/sqlite.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="SQLite">
+                    <span class="tech-name font-medium text-gray-300">SQLite</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/mariadb.svg"></span>
-                    <span class="tech-name">MariaDB</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/mariadb.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="MariaDB">
+                    <span class="tech-name font-medium text-gray-300">MariaDB</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/sql-server.svg"></span>
-                    <span class="tech-name">SQL Server</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/sql-server.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="SQL Server">
+                    <span class="tech-name font-medium text-gray-300">SQL Server</span>
                 </div>
-                <div class="tech-item">
-                    <span class="tech-icon"><img src="./images/icons/electron.svg"></span>
-                    <span class="tech-name">Electron</span>
+                <div class="tech-item group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-accent-green/50 hover:bg-accent-green/5 transition-all duration-300">
+                    <img src="./images/icons/electron.svg" class="w-12 h-12 mb-3 group-hover:scale-110 transition-transform" alt="Electron">
+                    <span class="tech-name font-medium text-gray-300">Electron</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Experiencia</h2>
-            <div class="experience-list fade-in">
-                <div class="experience-item">
-                    <div class="experience-header">
+    <section id="experience" class="section py-32 bg-secondary-bg/30">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-4xl font-bold mb-16 text-center fade-in">Experiencia</h2>
+            <div class="experience-list max-w-4xl mx-auto fade-in">
+                <div class="experience-item relative pl-8 pb-12 border-l-2 border-accent-green/30 last:pb-0">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-green shadow-[0_0_15px_rgba(0,255,136,0.5)]"></div>
+                    <div class="experience-header flex flex-col md:flex-row md:items-center justify-between mb-4">
                         <div>
-                            <div class="experience-company">En Proceso</div>
-                            <div class="experience-role">Estudiante de Ing en Software</div>
+                            <h3 class="experience-role text-2xl font-bold text-white">Estudiante de Ing en Software</h3>
+                            <div class="experience-company text-accent-green font-medium">En Proceso</div>
                         </div>
-                        <div class="experience-period">2024 - Actualidad</div>
+                        <div class="experience-period mt-2 md:mt-0 px-4 py-1 bg-accent-green/10 text-accent-green text-sm rounded-full border border-accent-green/20">2024 - Actualidad</div>
                     </div>
-                    <p class="experience-description">
+                    <p class="experience-description text-gray-400 text-lg leading-relaxed">
                         Actualmente estoy cursando la carrera de Ingeniería en Software, donde estoy adquiriendo 
                         conocimientos fundamentales en desarrollo de software, algoritmos, estructuras de datos y 
                         metodologías de programación. Estoy comprometido con mi formación académica y busco aplicar 
@@ -134,52 +185,56 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Proyectos</h2>
-            <div class="projects-grid fade-in">
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Educlass</h3>
-                        <p class="project-description">
+    <section id="projects" class="section py-32">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-4xl font-bold mb-16 text-center fade-in">Proyectos destacados</h2>
+            <div class="projects-grid grid grid-cols-1 md:grid-cols-2 gap-10 fade-in">
+                <!-- EduClass -->
+                <div class="project-card group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-accent-green/50 transition-all duration-500 hover:-translate-y-2 shadow-2xl">
+                    <div class="project-image h-64 bg-gradient-to-br from-blue-900/20 to-accent-green/10 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('./images/projects/educlass.png')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="project-content p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="project-title text-2xl font-bold text-white">EduClass</h3>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-accent-green/10 text-accent-green text-xs font-bold rounded">ACTIVO</span>
+                            </div>
+                        </div>
+                        <p class="project-description text-gray-400 mb-6 line-clamp-3">
                             Plataforma educativa completa con sistema de gestión de usuarios, 
-                            creación de cursos, seguimiento de progreso y sistema de certificaciones. En desarrollo activo.
+                            creación de cursos, seguimiento de progreso y sistema de certificaciones.
                         </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Google API</span>
+                        <div class="project-tech flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-white/5 text-gray-300 text-xs font-medium rounded-lg border border-white/5">PHP</span>
+                            <span class="px-3 py-1 bg-white/5 text-gray-300 text-xs font-medium rounded-lg border border-white/5">Laravel</span>
+                            <span class="px-3 py-1 bg-white/5 text-gray-300 text-xs font-medium rounded-lg border border-white/5">JavaScript</span>
+                            <span class="px-3 py-1 bg-white/5 text-gray-300 text-xs font-medium rounded-lg border border-white/5">MySQL</span>
                         </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-accent-green hover:gap-3 transition-all font-medium">
+                            Ver proyecto <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">SyncMusic</h3>
-                        <p class="project-description">
-                            Aplicación de streaming colaborativo que permite a múltiples usuarios escuchar música en 
-                            sintonía. Implementa comunicación bidireccional para sincronizar la reproducción, 
-                            pausa y cambio de pistas entre clientes en tiempo real. En desarrollo activo.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Socket.io</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Web Audio API</span>
-                        </div>
-                    </div>
-                </div>
-
-                
+            </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-gray-500 text-sm">
+                    © 2024 <span class="text-white font-medium">Andre Villamil</span>. Casi todos los derechos reservados.
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://github.com/andyx063799" target="_blank" class="text-gray-500 hover:text-accent-green transition-colors">GitHub</a>
+                    <a href="mailto:andyx063799@gmail.com" class="text-gray-500 hover:text-accent-green transition-colors">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="./js/index.js"></script>
 </body>
